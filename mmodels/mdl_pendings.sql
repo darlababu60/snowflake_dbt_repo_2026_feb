@@ -1,8 +1,14 @@
 {{ config(
-    materialized='incremental') }}         
-select eno,ename
+    materialized='incremental') }}   
 
-from {{source("kailash sources","EMPLOYEE")}}
+    
+with kailash as (
+    select eno,ename
+    from {{source("kailash sources","EMPLOYEE")}}
+    group by eno,ename
+    )
+
+select * from kailash
 
 /*--select * from {{source("kailash sources","EMPLOYEE")}}
 
