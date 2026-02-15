@@ -4,6 +4,6 @@
     )
 }}
 
-select * from {{source("kailash sources","USER")}}
+select * from {{source("kailash_sources","EMPLOYEE")}}
 
 --hi

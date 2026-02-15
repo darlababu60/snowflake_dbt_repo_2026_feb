@@ -1,7 +1,7 @@
 {{ dbt_utils.deduplicate(
 relation=ref("kailash"),
-partition_by ='job',
-order_by ='sal desc',
+partition_by ='EMPLOYEE_ID',
+order_by ='salARY desc',
 )
 }} 
 {#output

@@ -1,0 +1,1 @@
+select E.* from TEST_DB.TEST_SCHEMA.EMPLOYEE_BKP E--country_codes  ##EMPLOYEE

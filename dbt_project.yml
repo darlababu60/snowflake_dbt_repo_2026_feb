@@ -4,7 +4,7 @@
 #-profile: 'mysql'
 name :  "PROJECT_DEV"
 version: 1.0.0
-model-paths: ['mmodels']
+model-paths: ['models']
 seed-paths: ['seeds']
 analysis-paths: ['analysis']
 macro-paths: ['macros']

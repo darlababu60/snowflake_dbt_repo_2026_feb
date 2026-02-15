@@ -9,7 +9,7 @@
     )
 }}
 select * 
-from {{source("kailash sources","EMPLOYEE")}}--
+from {{source("kailash_sources","EMPLOYEE")}}--
 --from {{ref('kailash')}} 
 {% endsnapshot %}
 
