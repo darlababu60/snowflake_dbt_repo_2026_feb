@@ -10,7 +10,7 @@
         )
     }}
 
-    select * from {{source("kailash sources","EMPLOYEE")}}--DB_KAILASH.SCH_KAILASH.EMPLOYEE
+    select * from {{source("kailash_sources","EMPLOYEE")}}--DB_KAILASH.SCH_KAILASH.EMPLOYEE
     --user
 --need to check above snapshot config .....but source is fine
 {% endsnapshot %}

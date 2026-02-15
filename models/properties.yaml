@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: kailash_sources
+    database: TEST_DB
+    schema: TEST_SCHEMA
+    tables:
+      - name: USER
+      - name: PERSONS_SAMPLE_FDR
+      - name: PAY_MODES
+      - name: EMPLOYEE
+      - name: EMPLOYEE_bkp
+      - name: product_details
+      - name: sales_and_costs
+      - name: my_2dbtmodel2
+      - name: my_1dbtmode11
+
+models:
+
+  
+  - name: kamaleshwar
+    config:
+      materialized: table
+
+  - name: naresh
+    config:
+      materialized: table
+
+  - name: my_1dbtmodel1
+    config:
+      materialized: table
+
+  - name: my_2dbtmodel2
+    config:
+      materialized: table

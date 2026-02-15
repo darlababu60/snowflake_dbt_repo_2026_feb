@@ -9,7 +9,7 @@ SELECT 	cast(dpno as int) as department_no,
 --SUM(CASE WHEN job = 'salesmen' THEN 1 ELSE 0 END)  AS salesmen_COUNT
 
 --FROM employee
-from {{source("kailash sources","EMPLOYEE")}} --from DB_KAILASH.SCH_KAILASH.EMPLOYEE
+from {{source("kailash_sources","EMPLOYEE")}} --from DB_KAILASH.SCH_KAILASH.EMPLOYEE
 --from {{ ref ('kailash') }} -->DB_KAILASH.DB_KAILASH.KAILASH
 
 --GROUP BY dpno
