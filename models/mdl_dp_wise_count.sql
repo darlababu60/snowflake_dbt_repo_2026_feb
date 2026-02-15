@@ -1,11 +1,11 @@
 -- models/departwise count of employees
 
-SELECT 	cast(dpno as int) as department_no,
-{{ count_of_emp('clerk') }} AS clerk_COUNT,
-{{ count_of_emp('salesmen') }} AS salesmen_COUNT,
-{{ count_of_emp('manager') }} AS manager_COUNT,
-{{ count_of_emp('president') }} AS president_COUNT,
-{{ count_of_emp('analyst') }} AS analyst_COUNT
+SELECT 	cast(employee_id as int) as department_no,
+--{{ count_of_emp('clerk') }} AS clerk_COUNT,
+--{{ count_of_emp('salesmen') }} AS salesmen_COUNT,
+--{{ count_of_emp('manager') }} AS manager_COUNT,
+--{{ count_of_emp('president') }} AS president_COUNT,
+--{{ count_of_emp('analyst') }} AS analyst_COUNT
 --SUM(CASE WHEN job = 'salesmen' THEN 1 ELSE 0 END)  AS salesmen_COUNT
 
 --FROM employee

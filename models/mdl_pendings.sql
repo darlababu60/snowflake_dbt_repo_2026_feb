@@ -1,9 +1,8 @@
 {{ config(
     materialized='incremental') }}   
 
-    
 with kailash as (
-    select eno,ename
+    select EMPLOYEE_ID,name
     from {{source("kailash_sources","EMPLOYEE")}}
     group by eno,ename
     )

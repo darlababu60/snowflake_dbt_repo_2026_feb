@@ -13,7 +13,7 @@
 --VW_emp_10_20
 SELECT * 
 
-from {{source("kailash sources","EMPLOYEE")}}
+from {{source("kailash_sources","EMPLOYEE")}}
 --{{ ref('kailash') }} 
 --dbkailash.dbkailash.kailash
 {% endsnapshot %}
