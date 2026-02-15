@@ -4,7 +4,7 @@
 with kailash as (
     select EMPLOYEE_ID,name
     from {{source("kailash_sources","EMPLOYEE")}}
-    group by eno,ename
+    group by EMPLOYEE_ID,name
     )
 
 select * from kailash

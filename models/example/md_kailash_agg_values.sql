@@ -1,13 +1,7 @@
-{{ config(
-    materialized='table') }}
+{{ config(materialized='table') }}
 --{{ config(tags=['orders_related']) }}
-select EMPLOYEE_ID,name,job, 
-max(sal) as max_sal,
-avg(sal) as avg_sal,
-count(dpno) count
-from {{ ref ('kailash') }} 
-{{ dbt_utils.group_by(n=3) }}
---compile out put
---select eno,ename,job, max(sal), avg(sal),count(dpno)
---from DB_KAILASH.DB_KAILASH.kailash 
---group by 1,2,3
+select EMPLOYEE_ID ,
+max(salary) as max_sal,avg(salary) as avg_sal,count(EMPLOYEE_ID) count
+from {{source("kailash_sources","EMPLOYEE")}}
+--from {{ ref ('kailash') }} 
+{{ dbt_utils.group_by(n=1) }}
