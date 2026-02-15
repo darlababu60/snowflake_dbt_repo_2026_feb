@@ -1,14 +1,15 @@
-
 version: 2
-
-mmodels:
-  - name : "kailash.sql"
+models:
+  - name : "kailash"
     config:
       materialized: 'table'
       hours_to_expiration: 168
       persist_docs:
-      mmodels:
-        tags: ['naresh','kamaleshwar']
+        relation: true
+        columns: true
+      meta:
+        mmodels:
+          tags: ['naresh','kamaleshwar']
     columns:
       - name: eno
         tests:
@@ -17,9 +18,7 @@ mmodels:
               where: "order_date = current_date" 
           - not_null
           - dbt_utils.expression_is_true:
-## expression: "order_items_subtotal = subtotal"-
-          
-                
+## expression: "order_items_subtotal = subtotal"
       - name: dpno
         tests:
           - accepted_values:
@@ -29,24 +28,20 @@ mmodels:
           - relationships:
               to: ref('customers')
               field: id
-
   - name: orders
     columns:
       - name: order_id
         tests:
-          - kailash
-  
+          - kailash 
 # it is accepting anything above chek later..tests-kailash
-
-mmodels:
   - name: kailash
     description: "how to product retails"
     columns:
       - name: dpno
         tests:
-      - dbt_utils.expression_is_true:
-        expression: "dpno"
-        where : “retail _price IS NOT NULL”
+          
+          - expression: "dpno"
+          - where : “retail _price IS NOT NULL”
 # till now working
   - name: util_even_numbers
     columns:

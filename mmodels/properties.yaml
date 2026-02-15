@@ -1,8 +1,10 @@
  
 sources:
   - name: "kailash sources"
-    database: DB_KAILASH
-    schema: SCH_KAILASH
+    config:
+
+      database: DB_KAILASH
+      schema: SCH_KAILASH
     tables:
         - name: USER
         - name: PERSONS_SAMPLE_FDR
@@ -12,10 +14,12 @@ sources:
         - name: product_details
         - name: sales_and_costs
 
-models:
+mmodels:
   
   - name : "kamaleshwar.sql"
     config:
+      database: DB_KAILASH
+      schema: SCH_KAILASH
       materialized: 'table'
 
   - name : "naresh.sql"
@@ -28,11 +32,8 @@ models:
   - name : "my_1dbtmode2"
     config:
       materialized: 'table'   ###### sql or simple name no problem
-
-
 on-run-start:
   - "{{ mac_get_value_of_pii() }}"
-
 saved-queries:
   +schema: metrics
 
