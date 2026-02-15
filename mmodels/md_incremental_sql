@@ -6,4 +6,6 @@
 select eno,ename
 
 from {{source("kailash sources","EMPLOYEE")}}
-
+{#
+where order_date >= '{{ var("start_date") }}'
+#}
