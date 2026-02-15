@@ -24,8 +24,8 @@ config-version: 2
 
 vars:
   'dbt_date:time_zone': 'America/Los_Angeles'
-  # The `start_date` variable will be accessible in all resources
-  start_date: '2016-06-01'
+  # The `start_date` variable will be accessible in all resources --'Asia/Kolkata'
+  start_date: '2026-02-10'
 
   # The `platforms` variable is only accessible to resources in the my_dbt_project project
   my_dbt_project:
@@ -39,5 +39,6 @@ tests:
   project_dev:
     +severity: warn
 # project level if any severity then it will warns us during job excution..
-
+#project_prod:
+    #+severity: error
     
