@@ -3,7 +3,8 @@ seeds:
 
   - name: dim_names
     config:
-      full_refresh: true
+      full_refresh: true 
+      #Recreates the seed table every time you run:
       column_types:
         ID: varchar(5)
 
