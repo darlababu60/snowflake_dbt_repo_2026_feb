@@ -4,14 +4,12 @@
 #-profile: 'mysql'
 name :  "PROJECT_DEV"
 version: 1.0.0
-model-paths: ['mmodels']
+model-paths: ['models']
 seed-paths: ['seeds']
 analysis-paths: ['analysis']
 macro-paths: ['macros']
 snapshot-paths: ['snapshots']
 test-paths: ['tests']
-
-
 target-path: "target"
 clean-targets:  # directories to be remove by `dbt clean`
   - 'targets'
@@ -20,7 +18,6 @@ clean-targets:  # directories to be remove by `dbt clean`
 
 require-dbt-version: ">=1.0.0"
 config-version: 2
-
 
 vars:
   'dbt_date:time_zone': 'America/Los_Angeles'
@@ -42,3 +39,9 @@ tests:
 #project_prod:
     #+severity: error
     
+    
+selectors:
+  - name: finance_models
+    definition:
+      method: tag
+      value: finance

@@ -14,6 +14,8 @@ sources:
       - name: sales_and_costs
       - name: my_2dbtmodel2
       - name: my_1dbtmode11
+      
+      - name: PAYMENT_MODES
 
 models:
 
@@ -31,3 +33,5 @@ models:
   - name: my_2dbtmodel2
     config:
       materialized: table
+
+  
