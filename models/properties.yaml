@@ -17,11 +17,6 @@ sources:
 
 models:
 
-  
-  - name: kamaleshwar
-    config:
-      materialized: table
-
   - name: naresh
     config:
       materialized: table
