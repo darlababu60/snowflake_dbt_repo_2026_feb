@@ -1,5 +1,5 @@
-{% snapshot snp_chk %}--DB_KAILASH.SNAPSHOTSSS.ADS_SNAPSHOT_KAILASHH_CHK_REF
---internal names as name like snp_chk 
+{% snapshot snp_chk %}--DB_KAILASH.SNAPSHOTSSS.ADS_SNAPSHOT_KAILASHH_CHK_REF --ok running
+--internally stored as name like snp_chk 
    {{ config(
       target_schema='snapshotsss',
       unique_key = 'ENO',
@@ -7,7 +7,7 @@
       check_cols=['ENAME','JOB']
     )
 }}
-select * from {{ref('kamaleshwar')}} --DB_KAILASH.SCH_KAILASH.kailash 
+select * from {{ref('kamaleshwar')}} --from TEST_DB.test_schema.EMPLOYEE_BKP E
 {% endsnapshot %}
 --internal names as name like snp_chk 
 -- ,line 4 target_schema='snapshotsss',--it will cretae  new schema 
