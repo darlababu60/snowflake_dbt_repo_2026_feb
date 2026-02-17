@@ -38,10 +38,3 @@ tests:
 # project level if any severity then it will warns us during job excution..
 #project_prod:
     #+severity: error
-    
-    
-selectors:
-  - name: finance_models
-    definition:
-      method: tag
-      value: finance

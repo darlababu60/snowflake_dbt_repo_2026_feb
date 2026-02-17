@@ -1,5 +1,0 @@
-selectors:
-  - name: finance_models
-    definition:
-      method: tag
-      value: finance
