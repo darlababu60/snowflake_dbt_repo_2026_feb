@@ -8,5 +8,4 @@
 select *  from {{source("kailash_sources","EMPLOYEE_BKP")}}
 --from {{ref('kailash')}} 
 {% endsnapshot %}
---from DB_KAILASH.SCH_KAILASH.EMPLOYEE
---from DB_KAILASH.DB_KAILASH.kailash 
+
