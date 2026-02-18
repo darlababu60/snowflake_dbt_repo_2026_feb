@@ -1,10 +1,27 @@
-{{ dbt_utils.deduplicate(
-relation=ref("kailash"),
-partition_by ='EMPLOYEE_ID',
-order_by ='salARY desc',
-)
-}} 
-{#output
+--dbt_utils?
+-- dbt_utils.deduplicate()
+--where updated_at > (select max(updated_at) from {{ this }})
+
+
+{{ config(materialized='incremental', unique_key='eno') }}
+
+with x as (
+          {{ dbt_utils.deduplicate(relation= ref("kailash"), partition_by = 'dpno', order_by = 'sal desc', ) }} 
+          --dpno not case sensitive
+          )
+select * from x
+
+/*
+{{   dbt_utils.deduplicate( relation = ref("kailash"), partition_by = 'dpno', order_by = 'sal desc', ) }}
+{#
+or
+--source('raw','orders')
+--ref("kailash")
+{{ config(materialized='incremental', unique_key='ENO') }}
+
+{{   dbt_utils.deduplicate( relation = ref("kailash"), partition_by = 'dpno', order_by = 'sal desc', ) }}
+
+output
 relation= source("kailash sources","EMPLOYEE"),
 partition_by ='dpno',
 order_by ='sal',
@@ -44,3 +61,4 @@ relation=ref("kailash"),--- working
 relation=ref("mdl_naresh"),--- working
 relation= source("kailash sources","EMPLOYEE"),--- working
 #}
+*/

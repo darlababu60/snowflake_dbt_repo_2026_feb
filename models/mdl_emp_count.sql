@@ -1,4 +1,5 @@
 
+-- no config so view..
 SELECT 	eno,
 {{count_of_emp('clerk') }} AS clerk_COUNT,
 {{ count_of_emp('manager') }} AS manager_COUNT,

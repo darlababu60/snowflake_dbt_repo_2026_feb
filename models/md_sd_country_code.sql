@@ -1,4 +1,4 @@
-{{ config(materialized='table') }} 
+
 select *
 from {{ref('country_codes')}}
 --first refers table,view,ephemeral----if table existed then, it will check config ()...here no config so created view in db
