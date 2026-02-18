@@ -5,12 +5,14 @@ SELECT 	eno,
 {{ count_of_emp('manager') }} AS manager_COUNT,
 {{ count_of_emp('analyst') }} AS analyst_COUNT,
 SUM(CASE WHEN ENO >= '1' THEN 1 ELSE 0 END)  AS t_COUNT
+
 from {{source("kailash_sources","EMPLOYEE_BKP")}} 
+
 {{ dbt_utils.group_by(n=1) }}
 /*-- models/departwise count of employees
 --group by 2  means group by second column
 --group by 1
-select  employee_id
+select  eno
 from {{ source('kailash_sources', 'EMPLOYEE_BKP') }}
 group by 1
 

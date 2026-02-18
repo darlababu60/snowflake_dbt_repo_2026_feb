@@ -1,13 +1,13 @@
 {{ config(
     materialized='incremental') }}   
 
-with kailash as (
+with xuv as (
     select EMPLOYEE_ID,name
     from {{source("kailash_sources","EMPLOYEE")}}
     group by EMPLOYEE_ID,name
     )
 
-select * from kailash
+select * from xuv
 
 /*--select * from {{source("kailash_sources","EMPLOYEE")}}
 

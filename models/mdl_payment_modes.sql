@@ -5,5 +5,5 @@ sum(case when payment_mode =  'upi'  then sales end) as upi_SALES
 ,sum(case when payment_mode =  'dc'  then sales end) as dc_SALES 
 ,sum(case when payment_mode =  'voucher'  then sales end) as voucher_SALES 
 from {{ source("kailash_sources","PAYMENT_MODES")}}
---from {{source("kailash_sources","EMPLOYEE_BKP")}}
+
 
