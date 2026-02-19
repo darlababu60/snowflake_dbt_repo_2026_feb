@@ -5,7 +5,7 @@
 {{ config(materialized='incremental', unique_key='eno') }}
 with x as (
           {{ dbt_utils.deduplicate(relation = ref("kailash"), partition_by = 'dpno', order_by = 'sal', ) }} --default sal asc
-          --dpno not case sensitive
+          --dpno not case sensitive-***
           )
 select * from x
 /*
