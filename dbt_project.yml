@@ -10,8 +10,6 @@ analysis-paths: ['analysis']
 macro-paths: ['macros']
 snapshot-paths: ['snapshots']
 test-paths: ['tests']
-
-
 target-path: "target"
 clean-targets:  # directories to be remove by `dbt clean`
   - 'targets'
@@ -21,11 +19,11 @@ clean-targets:  # directories to be remove by `dbt clean`
 require-dbt-version: ">=1.0.0"
 config-version: 2
 
-
 vars:
-  'dbt_date:time_zone': 'America/Los_Angeles'
+  'dbt_date:time_zone': 'Asia/Kolkata'
   # The `start_date` variable will be accessible in all resources --'Asia/Kolkata'
-  start_date: '2026-02-10'
+  start_date: '2026-01-10'
+  
 
   # The `platforms` variable is only accessible to resources in the my_dbt_project project
   my_dbt_project:
@@ -35,10 +33,7 @@ vars:
   snowplow:
     app_ids: ['marketing', 'app', 'landing-page']
 
-tests:
-  project_dev:
-    +severity: warn
+
 # project level if any severity then it will warns us during job excution..
 #project_prod:
     #+severity: error
-    

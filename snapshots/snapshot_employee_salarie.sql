@@ -1,4 +1,5 @@
-{% snapshot snp_employee_salaries_snapshot %}
+{% snapshot snp_employee_salaries %}-- created
+
 {% set uniq_key = 'eno' %}
 {% set strategy = 'check' %}
 {% set check_cols = ['ename', 'job'] %}
@@ -11,9 +12,5 @@
 ) }}
 --TBL_emp_10_20
 --VW_emp_10_20
-SELECT * 
-
-from {{source("kailash_sources","EMPLOYEE")}}
---{{ ref('kailash') }} 
---dbkailash.dbkailash.kailash
+SELECT *  from {{source("kailash_sources","EMPLOYEE_BKP")}}
 {% endsnapshot %}

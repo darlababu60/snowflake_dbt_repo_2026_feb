@@ -9,19 +9,19 @@ sources:
       - name: PERSONS_SAMPLE_FDR
       - name: PAY_MODES
       - name: EMPLOYEE
-      - name: EMPLOYEE_bkp
+      - name: EMPLOYEE_BKP
       - name: product_details
       - name: sales_and_costs
       - name: my_2dbtmodel2
       - name: my_1dbtmode11
+      
+      - name: PAYMENT_MODES
 
 models:
 
-  
-  - name: kamaleshwar
+  - name: md_persons_sample
     config:
-      materialized: table
-
+      materialized: view
   - name: naresh
     config:
       materialized: table
@@ -33,3 +33,5 @@ models:
   - name: my_2dbtmodel2
     config:
       materialized: table
+
+  

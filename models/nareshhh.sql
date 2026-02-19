@@ -1,1 +1,2 @@
-select * from DB_KAILASH.SCH_KAILASH.EMPLOYEE 
+select * from TEST_DB.test_SCHEMA.EMPLOYEE
+-- ok done
