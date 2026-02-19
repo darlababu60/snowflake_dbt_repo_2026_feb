@@ -1,1 +1,1 @@
-select * from {{ref('cust_44')}}
+select * from {{ref('kailash')}}

@@ -33,9 +33,7 @@ vars:
   snowplow:
     app_ids: ['marketing', 'app', 'landing-page']
 
-tests:
-  project_dev:
-    +severity: warn
+
 # project level if any severity then it will warns us during job excution..
 #project_prod:
     #+severity: error
