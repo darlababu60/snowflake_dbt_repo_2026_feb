@@ -9,3 +9,4 @@ select E.* from TEST_DB.test_schema.EMPLOYEE_BKP E--country_codes  ##EMPLOYEE
       materialized: table
 
 */ 
+--ok done

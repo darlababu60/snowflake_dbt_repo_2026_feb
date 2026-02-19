@@ -12,10 +12,10 @@ from {{source("kailash_sources","EMPLOYEE_BKP")}}
 select  employee_id
 from {{ source('kailash_sources', 'EMPLOYEE_BKP') }}
 group by 1
-
 */
 /*
 create or replace TABLE TEST_DB.TEST_SCHEMA.EMPLOYEE_BKP (
 	ENO NUMBER(38,0),ENAME VARCHAR(10),JOB VARCHAR(10),MGR NUMBER(38,0),HIREDATE DATE,
 	SAL NUMBER(38,0),COMM NUMBER(38,0),DPNO NUMBER(38,0));
 */
+-- ok done

@@ -8,7 +8,6 @@ with x as (
           --dpno not case sensitive
           )
 select * from x
-
 /*
 or
 --relation= source ('xyz','kailash') or  --relation= source("kailash sources","EMPLOYEE"), or --ref("kailash")
@@ -61,5 +60,4 @@ output::::::::::::::::::::
 7876	adams	clerk	7788	0003-01-12	1100		20
 7934	miller	clerk	7782	0082-01-23	1300		10
 */
-
-
+-- ok done-- ok done

@@ -4,3 +4,4 @@
 select *
 from {{ ref('my_1dbtmodel') }}
 where id = 1
+-- ok done

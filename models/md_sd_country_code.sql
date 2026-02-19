@@ -8,3 +8,4 @@ from {{ref('country_codes')}}
 -- now i ran seed and creted table in data base,i am running the model again- view creted..not table
 --since no config file, created view
 */
+-- ok done
