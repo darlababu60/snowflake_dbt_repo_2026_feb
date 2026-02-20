@@ -1,12 +1,44 @@
 version: 2
 models:
-  - name : "kailash"
-    config:
-      materialized: 'table'
-      hours_to_expiration: 168
-      persist_docs:
-        relation: true
-        columns: true
+  - name: mdl_naresh
+    description: "Cleaned customer data"
+    tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "TO_NUMBER(dpno) >= 0"  
+    columns:
+      - name: dpno
+        tests:
+          - not_null
+          - unique
+          - accepted_values:
+              arguments:
+                values: [10,20,30]  
+  - name: kailash
+    description: "recent data in hiredate column"
+    tests:
+      - dbt_utils.recency:
+          arguments:
+            field: hiredate
+            datepart: day
+            interval: 50
+            # 2026-01-23 is the max  hiredate
+# today 2026-02-20...so max(hiredate)=2026-01-23 >= (today-29 ie..2026-02-20-29days-> 2026-01-23)--true
+# max(hiredate) >= current_timestamp - 29 days => (2026-02-20)-29 days....2026-01-22
+# 2026-01-23 >= 2026-01-22---true
+    
+  
+          
+
+      #- name: customer_id
+       # tests:
+        # - relationships:
+         #    to: ref('customers')
+          #   field: customer_id
+          
+
+
+      
       
           
 

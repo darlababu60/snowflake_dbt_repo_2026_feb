@@ -1,7 +1,6 @@
 --dbt_utils?
 -- dbt_utils.deduplicate()
 --where updated_at > (select max(updated_at) from {{ this }})
-
 {{ config(materialized='incremental', unique_key='eno') }}
 with x as (
           {{ dbt_utils.deduplicate(relation = ref("kailash"), partition_by = 'dpno', order_by = 'sal', ) }} --default sal asc
