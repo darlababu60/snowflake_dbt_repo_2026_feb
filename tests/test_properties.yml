@@ -11,7 +11,7 @@ models:
         tests:
           - not_null
           - unique
-          - not_empty_string
+          - dbt_utils.not_empty_string # finally after 1 day of R and D
           - accepted_values:
               arguments:
                 values: [10, 20, 30]
