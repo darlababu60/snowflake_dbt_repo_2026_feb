@@ -11,9 +11,11 @@ models:
         tests:
           - not_null
           - unique
+          - not_empty_string
           - accepted_values:
               arguments:
-                values: [10,20,30]  
+                values: [10, 20, 30]
+          
   - name: kailash
     description: "recent data in hiredate column"
     tests:
@@ -22,14 +24,11 @@ models:
             field: hiredate
             datepart: day
             interval: 50
+      
             # 2026-01-23 is the max  hiredate
 # today 2026-02-20...so max(hiredate)=2026-01-23 >= (today-29 ie..2026-02-20-29days-> 2026-01-23)--true
 # max(hiredate) >= current_timestamp - 29 days => (2026-02-20)-29 days....2026-01-22
 # 2026-01-23 >= 2026-01-22---true
-    
-  
-          
-
       #- name: customer_id
        # tests:
         # - relationships:
