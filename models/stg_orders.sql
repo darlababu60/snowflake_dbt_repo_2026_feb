@@ -1,4 +1,7 @@
-{{ config(materialized='table') }} 
+{{ config( materialized='table',
+    pre_hook="grant select on {{ this }} to role ACCOUNTADMIN",
+    post_hook="grant select on {{ this }} to role ACCOUNTADMIN"
+) }}
 
 SELECT
     order_id,

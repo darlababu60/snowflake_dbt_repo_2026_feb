@@ -1,7 +1,9 @@
 {{config(materialized='incremental', unique_key='eno') }}   --created as table in test_schema
+--pre_hook="delete from {{ this }} where order_date = current_date"
+
 with source_data as (
-select *  from {{source("kailash_sources","EMPLOYEE")}}  where hiredate >= to_date('{{ var("start_date") }}')
-)
+        select *  from {{source("kailash_sources","EMPLOYEE")}}  where hiredate >= to_date('{{ var("start_date") }}')
+        )
 select * from source_data
 
 {% if is_incremental() %}
