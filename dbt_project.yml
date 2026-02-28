@@ -22,7 +22,7 @@ config-version: 2
 vars:
   'dbt_date:time_zone': 'Asia/Kolkata'
   # The `start_date` variable will be accessible in all resources --'Asia/Kolkata'
-  start_date: '2026-01-10'
+  start_date: '0079-12-21'
   
 
   # The `platforms` variable is only accessible to resources in the my_dbt_project project

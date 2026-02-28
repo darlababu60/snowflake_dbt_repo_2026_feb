@@ -1,12 +1,63 @@
 version: 2
 models:
-  - name : "kailash"
-    config:
-      materialized: 'table'
-      hours_to_expiration: 168
-      persist_docs:
-        relation: true
-        columns: true
+  - name: mdl_naresh
+    description: "Cleaned customer data"
+    tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "TO_NUMBER(dpno) >= 0"  
+    columns:
+      - name: dpno
+        tests:
+          - not_null
+          - unique
+          - dbt_utils.not_empty_string # finally after 1 day of R and D
+          - dbt_utils.at_least_one
+          #- dbt_utils.mutually_exclusive_ranges:
+           #   lower_bound_column: 
+            #  upper_bound_column: 
+             # partition_by: dpno
+          - dbt_utils.accepted_range:
+              min_value: 10
+              max_value: 50
+          - accepted_values:
+              arguments:
+                values: [10, 20, 30]
+          
+  - name: kailash
+    description: "recent data in hiredate column"
+    tests:
+      - dbt_utils.recency:
+          arguments:
+            field: hiredate
+            datepart: day
+            interval: 50
+  - name: mdl_employee_roles
+    description: "employee roles dates "
+    tests:
+      - dbt_utils.mutually_exclusive_ranges:
+          lower_bound_column: start_date
+          upper_bound_column: end_date
+          partition_by : employee_id
+  - name: fct_orders
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+            # 2026-01-23 is the max  hiredate
+# today 2026-02-20...so max(hiredate)=2026-01-23 >= (today-29 ie..2026-02-20-29days-> 2026-01-23)--true
+# max(hiredate) >= current_timestamp - 29 days => (2026-02-20)-29 days....2026-01-22
+# 2026-01-23 >= 2026-01-22---true
+      #- name: customer_id
+       # tests:
+        # - relationships:
+         #    to: ref('customers')
+          #   field: customer_id
+          
+
+
+      
       
           
 
