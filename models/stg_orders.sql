@@ -8,10 +8,7 @@ post_hook="
         (model_name, run_id, status, log_time)
         VALUES ('{{ this.name }}','{{ invocation_id }}','STARTED',CURRENT_TIMESTAMP)"
 ) 
-INSERT INTO audit_log
-SELECT
-    '{{ this.name }}','{{ invocation_id }}','ROW_COUNT',COUNT(*),CURRENT_TIMESTAMP
-FROM {{ this }}
+
 }}
 -- dbt run -s tag:kail..this will run
 --dbt run -s tag : kail..this will not run
