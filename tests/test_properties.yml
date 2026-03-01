@@ -18,6 +18,7 @@ models:
             #  upper_bound_column: 
              # partition_by: dpno
           - dbt_utils.accepted_range:
+              arguments:
               min_value: 10
               max_value: 50
           - accepted_values:
