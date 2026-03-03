@@ -1,0 +1,6 @@
+order_date,region,product_category,sales_amount
+2024-01-01,East,Electronics,100
+2024-01-01,East,Clothing,50
+2024-01-01,West,Electronics,200
+2024-01-02,East,Food,75
+2024-01-02,West,Clothing,125

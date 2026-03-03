@@ -12,3 +12,12 @@ WHERE
   LIMIT {{ var('row_limit') }}
   {% endif %}
   -- dbt test -m mdl_sample-------------------wkd
+  --dbt run --vars '{"start_date": "2023-01-01", "end_date": "2023-03-31"}'
+  --dbt run --vars '{"regions": ["north", "south"], "include_test_data": false}'
+  --env vrbles
+  -- Configuring a model to use environment variables
+{#
+{{ config(schema=env_var('DBT_SCHEMA', 'analytics')) }}
+
+SELECT * FROM {{ ref('stg_orders') }}
+#}
