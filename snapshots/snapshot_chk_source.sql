@@ -6,6 +6,6 @@
       check_cols=['ENAME','JOB']
     )}}
 select *  from {{source("kailash_sources","EMPLOYEE_BKP")}}
---from {{ref('kailash')}} 
+--from {{ref('kailashh')}} 
 {% endsnapshot %}
 

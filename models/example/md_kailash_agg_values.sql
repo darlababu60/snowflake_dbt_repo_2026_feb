@@ -3,5 +3,5 @@
 select ENO,
 max(sal) as max_sal,avg(sal) as avg_sal,count(ENO) count
 from {{source("kailash_sources","EMPLOYEE")}}
---from {{ ref ('kailash') }} 
+--from {{ ref ('kailashh') }} 
 {{ dbt_utils.group_by(n=1) }}

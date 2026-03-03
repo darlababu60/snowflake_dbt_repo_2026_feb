@@ -1,2 +1,2 @@
 select *
-from {{ref('kailash')}}
+from {{ref('kailashh')}}

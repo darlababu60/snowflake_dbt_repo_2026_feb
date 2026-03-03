@@ -19,13 +19,13 @@ models:
              # partition_by: dpno
           - dbt_utils.accepted_range:
               arguments:
-              min_value: 10
-              max_value: 50
+                min_value: 10
+                max_value: 50
           - accepted_values:
               arguments:
                 values: [10, 20, 30]
           
-  - name: kailash
+  - name: kailashh
     description: "recent data in hiredate column"
     tests:
       - dbt_utils.recency:

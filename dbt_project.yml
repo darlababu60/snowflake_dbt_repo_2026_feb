@@ -6,6 +6,8 @@
 #-70471823533836
 name :  "PROJECT_DEV"
 version: 1.0.0
+config-version: 2
+require-dbt-version: ">=1.0.0"
 dbt-cloud:
     project-id: 70471823553284
 model-paths: ['models']
@@ -18,11 +20,11 @@ target-path: "target"
 clean-targets:  # directories to be remove by `dbt clean`
   - 'targets'
   - 'dbt-packages'
+  - 'logs'
 #clean-targets: [target, dbt_packages, logs]
-
-require-dbt-version: ">=1.0.0"
-config-version: 2
-
+#dbt clean --clean-project-files-only
+# dbt_clean --#clean-targets: [target, dbt_packages, logs]
+#dbt clean -- no-clean-project-files-only
 vars:
   # Simple scalar values
   #start_date: '2020-01-01'
@@ -38,8 +40,6 @@ vars:
 # project level if any severity then it will warns us during job excution..
 #project_prod:
     #+severity: error
-
-
   start_date: '0079-12-21'
   end_date: '2022-12-31'
   row_limit: null
@@ -69,6 +69,9 @@ vars:
   # Revenue recognition settings
   rev_rec_delay_days: 14             # Days to delay revenue recognition
   include_refunds: false             # Set to true to include refunded transactions
+# Specify folders to clean
+
+
 
     
   

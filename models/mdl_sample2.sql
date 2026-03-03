@@ -1,6 +1,7 @@
 --mdl_sample2.sql
+--fact_sale not available so dbt run -s model_name fails
+{{ config(materialized='table') }}
 with months as (
-
     {{ dbt_utils.date_spine(
         datepart="month", 
         start_date="cast('2024-01-01' as date)",
