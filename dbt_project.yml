@@ -70,7 +70,9 @@ vars:
   rev_rec_delay_days: 14             # Days to delay revenue recognition
   include_refunds: false             # Set to true to include refunded transactions
 # Specify folders to clean
-
+#
+on-run-start:
+  - "{{ create_email_enrichment_udf() }}"
 
 
     
