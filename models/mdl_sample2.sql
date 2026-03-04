@@ -11,8 +11,8 @@ with months as (
 )
 select
     m.date_month,
-    coalesce(sum(f.revenue), 0) as revenue
+    --coalesce(sum(f.revenue), 0) as revenue
 from months m
-left join fact_sales f
-    on date_trunc('month', f.order_date) = m.date_month
+left join {{ ref('kamaleshwar') }} f
+    on date_trunc('month', f.hiredate) = m.date_month
 group by 1

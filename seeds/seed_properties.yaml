@@ -1,6 +1,6 @@
 seeds:
 
-
+# dbt seed -s country_codes-->to load specific seed
   - name: dim_names
     config:
       full_refresh: true 

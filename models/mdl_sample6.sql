@@ -1,8 +1,8 @@
 -- models/daily_sales_report.sql
 {{ config(materialized='table') }}
 
-{# {{ config() }} #}
-{% set date_column = var('date_column', 'order_date') %}
+{# {{ config() }} order_date #}
+{% set date_column = var('date_column', 'day') %}
 {% set granularity = var('granularity', 'day') %}
 
 SELECT

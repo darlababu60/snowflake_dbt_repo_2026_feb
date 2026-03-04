@@ -58,6 +58,12 @@ vars:
     row_limit: 100
     debug_mode: true
     data_sample_pct: 10              # Only process 10% of data in dev
+    staging:
+      +tags: ["staging", "raw_data"]  # Multiple tags
+    marts:
+      +tags:
+        - "mart"
+        - "business_logic"
   prod:
     row_limit: null
     debug_mode: false
@@ -71,8 +77,15 @@ vars:
   include_refunds: false             # Set to true to include refunded transactions
 # Specify folders to clean
 #
-on-run-start:
-  - "{{ create_email_enrichment_udf() }}"
+#on-run-start:
+  #- "{{ create_email_enrichment_udf() }}"
+
+
+
+    #tag excution
+    #https://docs.paradime.io/app-help/concepts/dbt-fundamentals/configuring-your-dbt-project/working-with-tags-in-your-dbt-tm-project
+    #
+
 
 
     

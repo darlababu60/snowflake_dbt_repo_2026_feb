@@ -1,9 +1,9 @@
 --mdl_sample 
--- --column order_date not available so dbt run -s mdl_sample----> fails
+----column order_date not available so dbt run -s mdl_sample----> fails
 SELECT
-  date_trunc('month', order_date) as month,
+  date_trunc('month', HIREDATE) as month,-- to the first day of month--> 2024-03-01 00:00:00
   SUM(amount) as monthly_sales
-FROM {{ ref('stg_orders') }}
+FROM {{ ref('kamaleshwar') }}
 WHERE 
   order_date >= '{{ var("start_date") }}'
   AND order_date <= '{{ var("end_date") }}'

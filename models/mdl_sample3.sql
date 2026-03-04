@@ -2,7 +2,8 @@
 --{{ config(materialized='table') }}
 SELECT
   *
-FROM {{ ref('kamaleshwar') }}## chk to replace kamaleshwar
+FROM {{ ref('kamaleshwar') }}
+-- chk to replace kamaleshwar
 WHERE 1=1
   {% if var('filter_by_date', false) %}
 AND transaction_date BETWEEN '{{ var("start_date") }}' AND '{{ var("end_date") }}'

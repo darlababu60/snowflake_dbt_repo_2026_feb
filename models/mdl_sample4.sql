@@ -1,1 +1,1 @@
-models/kailash.sql$0
+models/kailash.sql
