@@ -1,9 +1,15 @@
+
 #-version: 2.0.0--accepts-"" ok--'' ok
 #https://docs.getdbt.com/reference/commands/seed
 #-   PROJECT_DEV  pjt_may2ndhalf
 #-profile: 'mysql'
+#-70471823533836
 name :  "PROJECT_DEV"
 version: 1.0.0
+config-version: 2
+require-dbt-version: ">=1.0.0"
+dbt-cloud:
+    project-id: 70471823553284
 model-paths: ['models']
 seed-paths: ['seeds']
 analysis-paths: ['analysis']
@@ -14,26 +20,75 @@ target-path: "target"
 clean-targets:  # directories to be remove by `dbt clean`
   - 'targets'
   - 'dbt-packages'
+  - 'logs'
 #clean-targets: [target, dbt_packages, logs]
-
-require-dbt-version: ">=1.0.0"
-config-version: 2
-
+#dbt clean --clean-project-files-only
+# dbt_clean --#clean-targets: [target, dbt_packages, logs]
+#dbt clean -- no-clean-project-files-only
 vars:
+  # Simple scalar values
+  #start_date: '2020-01-01'
+  #end_date: '2022-12-31'
   'dbt_date:time_zone': 'Asia/Kolkata'
   # The `start_date` variable will be accessible in all resources --'Asia/Kolkata'
-  start_date: '0079-12-21'
-  
-
   # The `platforms` variable is only accessible to resources in the my_dbt_project project
   my_dbt_project:
     platforms: ['web', 'mobile']
-
   # The `app_ids` variable is only accessible to resources in the snowplow package
   snowplow:
     app_ids: ['marketing', 'app', 'landing-page']
-
-
 # project level if any severity then it will warns us during job excution..
 #project_prod:
     #+severity: error
+  start_date: '0079-12-21'
+  end_date: '2022-12-31'
+  row_limit: null
+  debug_mode: false
+  # Lists
+  excluded_countries: ['test', 'demo', 'internal']
+  
+  # Dictionaries
+  partner_sales_targets: {
+    'tier1': 1000000,
+    'tier2': 500000,
+    'tier3': 100000
+  }
+  # Environment-specific variables
+  dev:
+    row_limit: 100
+    debug_mode: true
+    data_sample_pct: 10              # Only process 10% of data in dev
+    staging:
+      +tags: ["staging", "raw_data"]  # Multiple tags
+    marts:
+      +tags:
+        - "mart"
+        - "business_logic"
+  prod:
+    row_limit: null
+    debug_mode: false
+    data_sample_pct: 100             # Process all data in prod
+  # Analysis date range - used for filtering transaction data
+  # Format: YYYY-MM-DD
+  analysis_start_date: '2023-01-01'  # Inclusive
+  analysis_end_date: '2023-12-31'    # Inclusive
+  # Revenue recognition settings
+  rev_rec_delay_days: 14             # Days to delay revenue recognition
+  include_refunds: false             # Set to true to include refunded transactions
+# Specify folders to clean
+#
+#on-run-start:
+  #- "{{ create_email_enrichment_udf() }}"
+
+
+
+    #tag excution
+    #https://docs.paradime.io/app-help/concepts/dbt-fundamentals/configuring-your-dbt-project/working-with-tags-in-your-dbt-tm-project
+    #
+
+
+
+    
+  
+  
+

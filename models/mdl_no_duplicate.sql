@@ -3,17 +3,17 @@
 --where updated_at > (select max(updated_at) from {{ this }})
 {{ config(materialized='incremental', unique_key='eno') }}
 with x as (
-          {{ dbt_utils.deduplicate(relation = ref("kailash"), partition_by = 'dpno', order_by = 'sal', ) }} --default sal asc
+          {{ dbt_utils.deduplicate(relation = ref("kailashh"), partition_by = 'dpno', order_by = 'sal', ) }} --default sal asc
           --dpno not case sensitive-***
           )
 select * from x
 /*
 or
---relation= source ('xyz','kailash') or  --relation= source("kailash sources","EMPLOYEE"), or --ref("kailash")
+--relation= source ('xyz','kailashh') or  --relation= source("kailash sources","EMPLOYEE"), or --ref("kailashh")
 {{ config(materialized='incremental', unique_key='ENO') }}
-{{   dbt_utils.deduplicate( relation = ref("kailash"), partition_by = 'dpno', order_by = 'sal desc', ) }}
+{{   dbt_utils.deduplicate( relation = ref("kailashh"), partition_by = 'dpno', order_by = 'sal desc', ) }}
 --relation=ref("employee"),---not working
---relation=ref("kailash"),--- working
+--relation=ref("kailashh"),--- working
 --relation=ref("mdl_naresh"),--- working
 --relation= source("kailash sources","EMPLOYEE"),--- working
 
@@ -31,7 +31,7 @@ sample data employee
 7900	james	clerk	7698	0081-12-03	950		30
 7902	ford	analyst	7566	0081-12-03	3000		20
 7934	miller	clerk	7782	2026-01-23	1300		10
-incremental-{{ dbt_utils.deduplicate(relation = ref("kailash"), partition_by = 'dpno', order_by = 'sal ', ) }}--default asc 100,200,300...
+incremental-{{ dbt_utils.deduplicate(relation = ref("kailashh"), partition_by = 'dpno', order_by = 'sal ', ) }}--default asc 100,200,300...
 output:::::::::::::::::::
 7788	scott	analyst	7566	0082-12-09	3000		20
 7839	king	president		0081-11-17	5000		10
@@ -53,7 +53,7 @@ group 30
 7521	ward	salesmen	7698	0081-02-22	1250	 500	30
 7654	martin	salesmen	7698	0081-09-28	1250	1400	30
 7900	james	clerk	7698	    0081-12-03	  950          30--->
-incremental-{{ dbt_utils.deduplicate(relation = ref("kailash"), partition_by = 'dpno', order_by = 'sal desc', ) }} --300,200,100.....
+incremental-{{ dbt_utils.deduplicate(relation = ref("kailashh"), partition_by = 'dpno', order_by = 'sal desc', ) }} --300,200,100.....
 output::::::::::::::::::::
 7900	james	clerk	7698	0081-12-03	950		30
 7876	adams	clerk	7788	0003-01-12	1100		20

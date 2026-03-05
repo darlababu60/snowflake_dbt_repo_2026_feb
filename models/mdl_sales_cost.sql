@@ -1,7 +1,7 @@
 
 select  
-{{ sales_percentage1('PRODUCT_A_SALES', 'PRODUCT_B_SALES') }} as change0,
-{{ sales_percentage1('PRODUCT_A_SALES', 'PRODUCT_C_SALES') }} as change1
+{{ mac_sales_percentage1('PRODUCT_A_SALES', 'PRODUCT_B_SALES') }} as change0,
+{{ mac_sales_percentage1('PRODUCT_A_SALES', 'PRODUCT_C_SALES') }} as change1
 from {{ source("kailash_sources","sales_and_costs") }}
 
 /*

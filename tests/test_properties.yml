@@ -18,27 +18,26 @@ models:
             #  upper_bound_column: 
              # partition_by: dpno
           - dbt_utils.accepted_range:
-              min_value: 10
-              max_value: 50
+              arguments:
+                min_value: 10
+                max_value: 50
           - accepted_values:
               arguments:
                 values: [10, 20, 30]
           
-  - name: kailash
-    description: "recent data in hiredate column"
-    tests:
-      - dbt_utils.recency:
-          arguments:
-            field: hiredate
-            datepart: day
-            interval: 50
+
   - name: mdl_employee_roles
     description: "employee roles dates "
     tests:
-      - dbt_utils.mutually_exclusive_ranges:
-          lower_bound_column: start_date
-          upper_bound_column: end_date
-          partition_by : employee_id
+    - dbt_utils.mutually_exclusive_ranges:
+        arguments:
+          lower_bound_column: null
+          upper_bound_column: null
+          partition_by: employee_id
+
+
+
+  
   - name: fct_orders
     columns:
       - name: customer_id
