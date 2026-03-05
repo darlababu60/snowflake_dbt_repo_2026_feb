@@ -1,4 +1,5 @@
-
+#--**********https://docs.getdbt.com/reference/dbt-jinja-functions/config
+#--**********https://docs.paradime.io/app-help/concepts/dbt-fundamentals/configuring-your-dbt-project/unit-testing#unit-test-structure
 #-version: 2.0.0--accepts-"" ok--'' ok
 #https://docs.getdbt.com/reference/commands/seed
 #-   PROJECT_DEV  pjt_may2ndhalf

@@ -25,7 +25,6 @@ REGEXP_REPLACE(phone, '[^0-9]', '')--'123-456-7890'
 '1234567890'        '(555) 123-9999'
 '5551239999'    	'123'
 '###'                ''
-
 example2::
 CREATE OR REPLACE FUNCTION test_db.test_schema.fnc_positive_int(a_string STRING)
 returns string
