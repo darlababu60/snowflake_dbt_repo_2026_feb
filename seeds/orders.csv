@@ -1,0 +1,7 @@
+order_id,	customer_id,	product,	amount
+101,	C001,	Laptop,	75000
+102,	C002,	Mobile,	20000
+103,	C001,	Headphones,	2000
+104,	C003,	Tablet,	15000
+105,	C004,	Keyboard,	1500
+106,	C002,	Mouse,	800

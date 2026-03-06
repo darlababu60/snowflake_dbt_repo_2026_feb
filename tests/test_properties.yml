@@ -35,7 +35,16 @@ models:
           upper_bound_column: null
           partition_by: employee_id
 
-
+  - name: mdl_orders
+    config:
+      materialized: table
+    columns:
+      - name: customer_id
+        tests:
+          - tst_mac_duplicate_count:
+              arguments:
+                column_name: customer_id
+                error_threshold: 0
 
   
   - name: fct_orders

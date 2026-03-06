@@ -81,8 +81,6 @@ vars:
 #on-run-start:
   #- "{{ create_email_enrichment_udf() }}"
 
-
-
     #tag excution
     #https://docs.paradime.io/app-help/concepts/dbt-fundamentals/configuring-your-dbt-project/working-with-tags-in-your-dbt-tm-project
     #

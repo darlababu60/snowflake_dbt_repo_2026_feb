@@ -15,9 +15,7 @@ sources:
       - name: my_1dbtmode11
       - name: PAYMENT_MODES
       - name: orders
-        description: "Orders table"
         #loaded_at_field: updated_at-->The `loaded_at_field` top-level property should be moved into the `config` of `sources[0].tables[10]`.
-
       
 
   - name: raw_sales
@@ -40,6 +38,7 @@ models:
   - name: my_2dbtmodel2
     config:
       materialized: table    
+
 
   - name: kailashh
     description: "recent data in hiredate column"
