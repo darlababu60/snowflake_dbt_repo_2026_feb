@@ -87,7 +87,14 @@ vars:
 
 
 
-    
+  PROJECT_DEV:
+    +snowflake_warehouse: "EXTRA_LARGE"    # override the default Snowflake virtual warehouse for all models under the `clickstream` directory.
+snapshots:
+  +snowflake_warehouse: "EXTRA_LARGE"    # all Snapshot models are configured to use the `EXTRA_LARGE` warehouse.
+data_tests:
+  +snowflake_warehouse: "EXTRA_SMALL"    # all data tests are configured to use the `EXTRA_SMALL` warehouse.
+models:
+  +snowflake_warehouse: "COMPUTE_WH"    # default Snowflake virtual warehouse for all models in the project.
   
   
 

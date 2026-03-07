@@ -21,20 +21,25 @@ sources:
   - name: raw_sales
     database: your_database_name      # optional (depends on warehouse)
     schema: raw_sales_schema_name     # REQUIRED (warehouse schema)
-  
 
 models:
   - name: md_persons_sample
     config:
       materialized: view
+      transient: false
+      copy_grants: true
+
   - name: naresh
     config:
       materialized: table
+      transient: false
+      copy_grants: true
 
   - name: my_1dbtmodel1
     config:
       materialized: table
-
+      transient: false
+      copy_grants: true
   - name: my_2dbtmodel2
     config:
       materialized: table    
@@ -48,29 +53,18 @@ models:
         warn_after:
           count: 24
           period: hour
+          transient: false
         error_after:
           count: 24
           period: hour
+          transient: false
     tests:
       - dbt_utils.recency:
           arguments:
             field: hiredate
             datepart: day
             interval: 50
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
 
 functions:
   - name: fnc_is_positive_int
@@ -92,4 +86,8 @@ functions:
 # dbt build --select "resource_type:function"
 # dbt build --select xyz_abc
 
-    
+#copy_grants: true
+  #Normally when dbt runs:
+  #It may drop and recreate objects.
+  #Without copy_grants, you must grant permissions again.
+  #With copy_grants: true, dbt automatically copies existing privileges.

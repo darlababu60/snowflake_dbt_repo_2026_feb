@@ -51,6 +51,7 @@ models:
               arguments:
                 column_name: amount
 
+
   - name: fct_orders
     columns:
       - name: customer_id
@@ -59,7 +60,10 @@ models:
           - unique
 
 
-
+#      - name: order_id
+#        tests:
+#          - not_null
+#          - unique
 
 
 
