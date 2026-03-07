@@ -3,6 +3,10 @@
               snowflake_warehouse='compute_wh',tags=["finance", "daily_refresh"],
               
               ) }}  
+   {%- set target_relation = api.Relation.create(
+      database='test_db',
+      schema='test_schema',
+      identifier='EMPLOYEE') -%}
 
 select 
        eno,

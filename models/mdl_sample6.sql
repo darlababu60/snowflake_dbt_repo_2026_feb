@@ -6,6 +6,7 @@
 {% set granularity = var('granularity', 'day') %}
 {% set date_column = var('date_column', 'order_date') %}--invalid order_date so
 {% set date_column = date_column | default('day') %} 
+
 {% set granularity = granularity | default('day') %}    
 #} 
 

@@ -45,14 +45,67 @@ models:
               arguments:
                 column_name: customer_id
                 error_threshold: 0
+      - name: amount
+        tests:
+          - mac_tst_not_negative:
+              arguments:
+                column_name: amount
 
-  
   - name: fct_orders
     columns:
       - name: customer_id
         tests:
           - not_null
           - unique
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             # 2026-01-23 is the max  hiredate
 # today 2026-02-20...so max(hiredate)=2026-01-23 >= (today-29 ie..2026-02-20-29days-> 2026-01-23)--true
 # max(hiredate) >= current_timestamp - 29 days => (2026-02-20)-29 days....2026-01-22
