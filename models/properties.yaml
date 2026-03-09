@@ -93,16 +93,16 @@ functions:
   #Without copy_grants, you must grant permissions again.
   #With copy_grants: true, dbt automatically copies existing privileges.
   # incremental_strategy--append,merge,insert_overwrite,delete+insert,microbatch.......?
-snapshots:
-  - name: string
-    relation: relation # source('my_source', 'my_table') or ref('my_model')
-    description:  markdown_string
-    config:
-      database: string
-      schema: string
-      alias: string
-      strategy: timestamp | check
-      unique_key: column_name_or_expression
+#snapshots:
+  #- name: string
+   # relation: relation # source('my_source', 'my_table') or ref('my_model')
+    #description:  markdown_string
+   # config:
+     # database: string
+      #schema: string
+      #alias: string
+      #strategy: timestamp | check
+     # unique_key: column_name_or_expression
       #check_cols: [column_name] | all
       #updated_at: column_name
       #snapshot_meta_column_names: dictionary
