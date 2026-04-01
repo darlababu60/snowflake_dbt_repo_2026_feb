@@ -1,4 +1,5 @@
-
+#--**********https://docs.getdbt.com/reference/dbt-jinja-functions/config
+#--**********https://docs.paradime.io/app-help/concepts/dbt-fundamentals/configuring-your-dbt-project/unit-testing#unit-test-structure
 #-version: 2.0.0--accepts-"" ok--'' ok
 #https://docs.getdbt.com/reference/commands/seed
 #-   PROJECT_DEV  pjt_may2ndhalf
@@ -80,15 +81,20 @@ vars:
 #on-run-start:
   #- "{{ create_email_enrichment_udf() }}"
 
-
-
     #tag excution
     #https://docs.paradime.io/app-help/concepts/dbt-fundamentals/configuring-your-dbt-project/working-with-tags-in-your-dbt-tm-project
     #
 
 
 
-    
+  PROJECT_DEV:
+    +snowflake_warehouse: "EXTRA_LARGE"    # override the default Snowflake virtual warehouse for all models under the `clickstream` directory.
+snapshots:
+  +snowflake_warehouse: "EXTRA_LARGE"    # all Snapshot models are configured to use the `EXTRA_LARGE` warehouse.
+data_tests:
+  +snowflake_warehouse: "EXTRA_SMALL"    # all data tests are configured to use the `EXTRA_SMALL` warehouse.
+models:
+  +snowflake_warehouse: "COMPUTE_WH"    # default Snowflake virtual warehouse for all models in the project.
   
   
 

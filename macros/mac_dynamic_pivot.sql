@@ -5,7 +5,7 @@
     SELECT DISTINCT {{ pivot_column }} FROM {{ table_name }} ORDER BY 1 
 {% endset %} 
 {% set results = run_query(query) %} 
- 
+
 {% if execute %} 
       {% set pivot_values = results.columns[0].values() %} 
  {% else %} 
@@ -33,7 +33,6 @@ SELECT
     SUM(CASE WHEN product = 'Tablet' THEN amount ELSE 0 END) AS "Tablet"
 FROM sales_data
 GROUP BY region
-
 order_date	region	product_category	sales_amount
 2024-01-01	East	Electronics	        100
 2024-01-01	East	Clothing	        50

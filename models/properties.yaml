@@ -15,63 +15,57 @@ sources:
       - name: my_1dbtmode11
       - name: PAYMENT_MODES
       - name: orders
-        description: "Orders table"
         #loaded_at_field: updated_at-->The `loaded_at_field` top-level property should be moved into the `config` of `sources[0].tables[10]`.
-
       
 
   - name: raw_sales
     database: your_database_name      # optional (depends on warehouse)
     schema: raw_sales_schema_name     # REQUIRED (warehouse schema)
-  
 
 models:
   - name: md_persons_sample
     config:
       materialized: view
+      transient: false
+      copy_grants: true
+
   - name: naresh
     config:
       materialized: table
+      transient: false
+      copy_grants: true
 
   - name: my_1dbtmodel1
     config:
       materialized: table
-
+      transient: false
+      copy_grants: true
   - name: my_2dbtmodel2
     config:
       materialized: table    
+
 
   - name: kailashh
     description: "recent data in hiredate column"
     config:
       materialized: table
+      incremental_strategy: "insert_overwrite"
       freshness:
         warn_after:
           count: 24
           period: hour
+          transient: false
         error_after:
           count: 24
           period: hour
+          transient: false
     tests:
       - dbt_utils.recency:
           arguments:
             field: hiredate
             datepart: day
             interval: 50
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
 
 functions:
   - name: fnc_is_positive_int
@@ -93,4 +87,26 @@ functions:
 # dbt build --select "resource_type:function"
 # dbt build --select xyz_abc
 
-    
+#copy_grants: true
+  #Normally when dbt runs:
+  #It may drop and recreate objects.
+  #Without copy_grants, you must grant permissions again.
+  #With copy_grants: true, dbt automatically copies existing privileges.
+  # incremental_strategy--append,merge,insert_overwrite,delete+insert,microbatch.......?
+#snapshots:
+  #- name: string
+   # relation: relation # source('my_source', 'my_table') or ref('my_model')
+    #description:  markdown_string
+   # config:
+     # database: string
+      #schema: string
+      #alias: string
+      #strategy: timestamp | check
+     # unique_key: column_name_or_expression
+      #check_cols: [column_name] | all
+      #updated_at: column_name
+      #snapshot_meta_column_names: dictionary
+      #dbt_valid_to_current: string
+      #hard_deletes: ignore | invalidate | new_record 
+      #dbt_valid_to_current: "to_date('9999-12-31')" # Specifies that current records should have `dbt_valid_to` set to `'9999-12-31'` instead of `NULL`.
+      # hard_deletes: new_record  # options are: 'ignore', 'invalidate', or 'new_record'
