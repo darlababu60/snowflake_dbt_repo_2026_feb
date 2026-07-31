@@ -3,7 +3,7 @@
 --Macros run at compile time, not at query runtime
 --not able to run source
 {% macro mac_only_integer(col_name) %}
-    REGEXP_REPLACE({{ col_name }}, '[^0-9]', '')
+    REGEXP_REPLACE( {{ col_name }}, '[^0-9]', '')--ABC123XYZ->123
 {% endmacro %}
 {#
 {% macro mac_function1(ta) %}
