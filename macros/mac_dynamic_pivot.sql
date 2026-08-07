@@ -1,13 +1,12 @@
---{{ dynamic_pivot('sales_data',['order_date', 'region'],'product_category','sales_amount')}}
+
 {% macro mac_dynamic_pivot(table_name, group_by_columns, pivot_column, value_column) %} 
 {% set group_by_str = group_by_columns | join(', ') %} 
 {% set query %} 
     SELECT DISTINCT {{ pivot_column }} FROM {{ table_name }} ORDER BY 1 
 {% endset %} 
-{% set results = run_query(query) %} 
-
+{% set q_results = run_query(query) %} 
 {% if execute %} 
-      {% set pivot_values = results.columns[0].values() %} 
+      {% set pivot_values =q_results.columns[0].values() %} 
  {% else %} 
       {% set pivot_values = [] %} 
 {% endif %} 
@@ -20,11 +19,12 @@ SELECT {{ group_by_str }},
      {% if not loop.last %},
      {% endif %} 
  {% endfor %} 
+
    FROM {{ table_name }} 
    GROUP BY {{ group_by_str }} 
 {% endmacro %} 
-   please explain this with 1 real time data and table
-output:::::
+--please explain this with 1 real time data and table
+--output:::::
 {#
 SELECT
     region,
