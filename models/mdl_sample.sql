@@ -21,4 +21,15 @@ LIMIT {{ var('row_limit') }}
 {{ config(schema=env_var('DBT_SCHEMA', 'analytics')) }}
 SELECT * FROM {{ ref('stg_orders') }}
 #}
--- [KAMALESHWAR.HIREDATE] is not a valid group by expression--so group by 1 
+-- [KAMALESHWAR.HIREDATE] is not a valid group by expression--so group by 1
+{#
+SELECT
+  date_trunc('month', HIREDATE) as month,-- to the first day of month--> 2024-03-01 00:00:00
+  SUM(sal) as monthly_sales
+FROM test_db.TEST_SCHEMA.kamaleshwar
+WHERE 
+  HIREDATE >= '0079-12-21'
+  AND HIREDATE <= '2022-12-31'
+  AND  ENAME = 'active'
+  GROUP BY 1
+  #} 
