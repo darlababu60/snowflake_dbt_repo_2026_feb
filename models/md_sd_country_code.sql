@@ -9,3 +9,4 @@ from {{ref('country_codes')}}
 --since no config file, created view
 */
 -- ok done
+--ref() can reference: seeds,snapshots,models
