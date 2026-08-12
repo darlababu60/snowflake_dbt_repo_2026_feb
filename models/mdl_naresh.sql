@@ -10,3 +10,4 @@ order by s.total_salary desc
 --{{target.schema}} =  SCH_KAILASH--?
 --{{target.database}} = DB_KAILASH--?
 -- ok done
+--
