@@ -6,4 +6,4 @@
     }
 %}
 select {{person["name"]}} as name,
-       {{person["job"]}} as job,
+       {{person["job"]}} as job

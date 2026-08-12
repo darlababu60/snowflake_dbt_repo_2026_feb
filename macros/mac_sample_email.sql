@@ -12,6 +12,8 @@ $$
             split_part(email, '@', 1) as username,
             split_part(email, '@', 2) as domain
     )
+
+    
     select object_construct(
         'is_valid', is_valid,
         'masked_email',

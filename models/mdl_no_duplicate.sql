@@ -3,10 +3,11 @@
 --where updated_at > (select max(updated_at) from {{ this }})
 {{ config(materialized='incremental', unique_key='eno') }}
 with x as (
-          {{ dbt_utils.deduplicate(relation = ref("kailashh"), partition_by = 'dpno', order_by = 'sal', ) }} --default sal asc
+          {{ dbt_utils.deduplicate(relation = ref("kailashh"), partition_by = '9', order_by = '1', ) }} --default sal asc
           --dpno not case sensitive-***
           )
 select * from x
+--dbt_utils.deduplicate()...used to avoid duplic records as per parameters like partiton by,
 /*
 or
 --relation= source ('xyz','kailashh') or  --relation= source("kailash sources","EMPLOYEE"), or --ref("kailashh")
@@ -59,4 +60,4 @@ output::::::::::::::::::::
 7876	adams	clerk	7788	0003-01-12	1100		20
 7934	miller	clerk	7782	0082-01-23	1300		10
 */
--- ok done-- ok done
+-- ok done
