@@ -9,5 +9,5 @@ select E.* from TEST_DB.test_schema.EMPLOYEE_BKP E--country_codes  ##EMPLOYEE
       materialized: table
 */ 
 
---no config but created in snowflake beacuse of default things it seems?  am i right?a
+--no config but created in snowflake beacuse of default things it seems?  am i right?an apple
 --ok done
