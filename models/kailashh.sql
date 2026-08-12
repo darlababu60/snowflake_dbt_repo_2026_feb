@@ -51,4 +51,4 @@ immutable_where='ts < CURRENT_TIMESTAMP() - INTERVAL \'10 DAY\''
     {{ log("Table does not exist", info=True) }}
 {% endif %}
 #}
--- it worked.
+-- it worked. ok brabch 1
